@@ -195,7 +195,7 @@ body {
 .main .menu .menu_item h3 {
     position: absolute;
     left: 50%;
-    bottom: 10%;
+    bottom: 15%;
     transform: translateX(-50%);
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.8);
