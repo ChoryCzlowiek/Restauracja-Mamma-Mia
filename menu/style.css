@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+.nav {
+    position: relative;
+    width: 100%;
+    height: 12vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    overflow: hidden;
+}
+
+.nav .logo_container {
+    flex-basis: 20%;
+    height: 100%;
+}
+
+.nav .logo_container .logo {
+    padding-top: 5%;
+    padding-left: 10%;
+    height: 90%;
+}
+
+.nav .title {
+    flex-grow: 1;
+    height: 100%;
+    text-align: center;
+}
+
+.nav .title h1 {
+    line-height: 12vh;
+    font-family: 'Happy Monkey', cursive;
+    color: rgb(214, 213, 133);
+}
+
+.nav .burger_container {
+    flex-basis: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.nav .burger_container .burger {
+    font-size: 1.8rem;
+    line-height: 12vh;
+    color: rgb(214, 213, 133);
+    transition: .3s;
+}
+
+.active_burger {
+    transform: rotate(90deg);
+}
+
+.nav .menu {
+    position: fixed;
+    top: 0vh;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right bottom, rgb(68, 67, 67), black 30% 70%, rgb(68, 67, 67));
+    z-index: 1;
+    opacity: 0;
+    display: none;
+}
+
+.nav .menu .exit_menu {
+    position: absolute;
+    top: 5%;
+    right: 5vh;
+    font-size: 2rem;
+    color: white;
+}
+
+.nav .menu ul {
+    height: 50%;
+    margin-top: calc((88vh * 50 / 100) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav .menu ul li {
+    flex-basis: 20%;
+    text-align: center;
+    list-style: none;
+}
+
+.nav .menu ul li a {
+    line-height: calc(40vh / 5);
+    font-size: 1.5rem;
+    font-family: 'Happy Monkey', cursive;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.active_menu {
+    display: block !important;
+    opacity: 1 !important;
+    animation: menuGrowUp .5s linear both;
+}
+
+.nav .menu ul li .active_menu_text {
+    animation: showText .5s linear .5s both;
+}
+
+@keyframes menuGrowUp {
+    0% {
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@keyframes showText {
+    0% {
+        font-size: 0;
+    }
+
+    100% {
+        font-size: 1.5rem;
+    }
+}
+
+.main {
+    width: 100%;
+    max-width: 100%;
+    min-height: 88vh;
+    background-image: url('images/bgc.jpg');
+    background-position: center;
+    padding-bottom: 5vh;
+}
+
+.main h1 {
+    padding: 5vh 0 5vh;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Spicy Rice', cursive;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.main p {
+    margin: 0 10% 8vh;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Charm', cursive;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+.main .menu {
+    width: 70%;
+    margin: 0 15%;
+}
+
+.main .menu .menu_item {
+    position: relative;
+    margin: 3vh 0;
+}
+
+.main .menu .menu_item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px inset silver;
+    box-shadow: 0 5px 10px 2px silver;
+    cursor: pointer;
+}
+
+.main .menu .menu_item img:hover {
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+.main .menu .menu_item img:hover+h3 {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 5px 15px rgb(255, 255, 255), 0 -5px 15px rgb(255, 255, 255);
+    transition: .5s linear;
+}
+
+.main .menu .menu_item h3 {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 5px 15px black, 0 -5px 15px black;
+}
+
+.show_menu .menu_list {
+    position: fixed;
+    left: 5%;
+    right: 5%;
+    top: 5vh;
+    bottom: 5vh;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow-y: scroll;
+    max-height: 100%;
+    display: none;
+}
+
+.show_menu .active_show_menu {
+    display: block;
+}
+
+
+.show_menu .menu_list .exit {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.show_menu .menu_list h2 {
+    margin: 1vh 0 3vh;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Spicy Rice', cursive;
+}
+
+hr {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.show_menu .menu_list .dish {
+    position: relative;
+    margin: 2vh 0;
+}
+
+.show_menu .menu_list .dish h3 {
+    font-size: 1.2rem;
+    font-family: 'Charm', cursive;
+}
+
+.show_menu .menu_list .dish p {
+    font-size: .7rem;
+    margin-top: .5vh;
+}
+
+.show_menu .menu_list .dish .price {
+    margin-left: 70%;
+    margin-top: 2vh;
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 768px) {
+    .nav .title h1 {
+        font-size: 4.3rem;
+    }
+
+    .nav .burger_container .burger {
+        font-size: 3.3rem;
+    }
+
+    .main h1 {
+        font-size: 6rem;
+    }
+
+    .main p {
+        font-size: 1.5rem;
+    }
+
+    .main .menu .menu_item {
+        margin: 5vh 0;
+    }
+
+    .main .menu .menu .menu_item h3 {
+        font-size: 3.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 5px 15px black, 0 -5px 15px black;
+    }
+
+    .show_menu .menu_list .exit {
+        font-size: 2rem;
+    }
+
+    .show_menu .menu_list h2 {
+        font-size: 3.5rem;
+    }
+
+    .show_menu .menu_list .dish {
+        margin: 2vh 5%;
+    }
+
+    .show_menu .menu_list .dish h3 {
+        font-size: 1.7rem;
+    }
+
+    .show_menu .menu_list .dish p {
+        font-size: 1rem;
+    }
+
+    .show_menu .menu_list .dish .price {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-width: 350px) {
+    .main .menu {
+        width: 90%;
+        margin: 0 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .main .menu .menu_item {
+        flex-basis: 45%;
+        margin: 5vh 0;
+    }
+
+    .main .menu .drinks {
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (orientation: landscape) and (min-width: 1024px) {
+    .nav .logo_container {
+        flex-basis: 10%;
+        height: 100%;
+    }
+
+    .nav .logo_container .logo {
+        padding-left: 20%;
+    }
+
+    .nav .title {
+        flex-grow: 0;
+        flex-basis: 40%;
+        text-align: left;
+    }
+
+    .nav .title h1 {
+        font-size: 3rem;
+    }
+
+    .nav .burger_container {
+        display: none;
+    }
+
+    .nav .menu {
+        position: relative;
+        flex-grow: 1;
+        height: 12vh;
+        background: transparent;
+        opacity: 1;
+        display: block;
+        z-index: 0;
+    }
+
+    .nav .menu .exit_menu {
+        display: none;
+    }
+
+    .nav .menu ul {
+        height: 100%;
+        margin-top: 0;
+        margin-right: 5%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav .menu ul li a {
+        position: relative;
+        line-height: 12vh;
+        color: rgb(214, 213, 133);
+    }
+
+    .nav .menu ul li a:before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        height: 3px;
+        width: 0%;
+        background-color: rgb(155, 11, 11);
+    }
+
+    .nav .menu ul li a:hover {
+        animation: growUpText .5s both;
+    }
+
+    .nav .menu ul li a:hover:before {
+        animation: growUpBorder .5s both;
+    }
+
+    .main .menu .menu_item {
+        flex-basis: 29%;
+        margin: 5vh 0;
+    }
+
+    .main .menu .drinks {
+        margin-left: 0;
+        transform: translate(0);
+    }
+
+    @keyframes growUpText {
+        0% {
+            font-size: 1.3rem;
+        }
+
+        100% {
+            font-size: 1.7rem;
+        }
+    }
+
+    @keyframes growUpBorder {
+        0% {
+            width: 0%;
+            left: 50%;
+        }
+
+        100% {
+            width: 100%;
+            left: 0;
+        }
+    }
+}

@@ -1,0 +1,605 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    max-height: 100vh;
+    width: 100%;
+}
+
+.nav {
+    position: relative;
+    width: 100%;
+    height: 12vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    overflow: hidden;
+}
+
+.nav .logo_container {
+    flex-basis: 20%;
+    height: 100%;
+}
+
+.nav .logo_container .logo {
+    padding-top: 5%;
+    padding-left: 10%;
+    height: 90%;
+}
+
+.nav .title {
+    flex-grow: 1;
+    height: 100%;
+    text-align: center;
+}
+
+.nav .title h1 {
+    line-height: 12vh;
+    font-family: 'Happy Monkey', cursive;
+    color: rgb(214, 213, 133);
+}
+
+.nav .burger_container {
+    flex-basis: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.nav .burger_container .burger {
+    font-size: 1.8rem;
+    line-height: 12vh;
+    color: rgb(214, 213, 133);
+    transition: .3s;
+}
+
+.active_burger {
+    transform: rotate(90deg);
+}
+
+.nav .menu {
+    position: fixed;
+    top: 0vh;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right bottom, rgb(68, 67, 67), black 30% 70%, rgb(68, 67, 67));
+    z-index: 1;
+    opacity: 0;
+    display: none;
+}
+
+.nav .menu .exit_menu {
+    position: absolute;
+    top: 5%;
+    right: 5vh;
+    font-size: 2rem;
+    color: white;
+}
+
+.nav .menu ul {
+    height: 50%;
+    margin-top: calc((88vh * 50 / 100) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav .menu ul li {
+    flex-basis: 20%;
+    text-align: center;
+    list-style: none;
+}
+
+.nav .menu ul li a {
+    line-height: calc(40vh / 5);
+    font-size: 1.5rem;
+    font-family: 'Happy Monkey', cursive;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.active_menu {
+    display: block !important;
+    opacity: 1 !important;
+    animation: menuGrowUp .5s linear both;
+}
+
+.nav .menu ul li .active_menu_text {
+    animation: showText .5s linear .5s both;
+}
+
+@keyframes menuGrowUp {
+    0% {
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@keyframes showText {
+    0% {
+        font-size: 0;
+    }
+
+    100% {
+        font-size: 1.5rem;
+    }
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    height: 88vh;
+    background-image: url('images/bgc.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main .title {
+    flex-basis: 15%;
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+}
+
+.main .title h1 {
+    margin-top: 5%;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main .contact {
+    flex-basis: 55%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main .contact input,
+.main .contact textarea,
+.main .contact button {
+    margin-left: 20%;
+}
+
+.main .contact input,
+.main .contact textarea {
+    width: 60%;
+    font-size: 1rem;
+    font-family: 'Roboto Slab', serif;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgb(214, 213, 133);
+}
+
+.main .contact input::placeholder,
+.main .contact textarea::placeholder {
+    font-size: .8rem;
+    color: rgba(46, 46, 46, 0.8);
+}
+
+.main .contact input {
+    flex-basis: 10%;
+}
+
+.main .contact textarea {
+    flex-basis: 40%;
+}
+
+.main .contact button {
+    flex-basis: 15%;
+    width: 40%;
+    margin-left: 30%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(46, 46, 46, 0.8);
+    border: none;
+    background-color: rgb(214, 213, 133);
+    box-shadow: 0 0 10px 0 black;
+    cursor: pointer;
+}
+
+.main .contact .active_button {
+    color: rgb(214, 213, 133);
+    text-shadow: 0 0 15px black;
+    background-image: url('images/button.jpg');
+    background-position: center;
+    background-size: cover;
+    transition: 1s linear;
+}
+
+.main .company_data {
+    flex-basis: 20%;
+    width: 100%;
+    margin-bottom: 5%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main .company_data h1 {
+    margin-top: 5%;
+    flex-basis: 100%;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 15px black;
+}
+
+.main .company_data p {
+    font-size: .9rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px black;
+    color: rgb(214, 213, 133);
+}
+
+.main .company_data .city,
+.main .company_data .street {
+    flex-basis: 45%;
+}
+
+.main .company_data .number,
+.main .company_data .email {
+    flex-basis: 45%;
+}
+
+@media screen and (min-width: 768px) {
+    .nav .title h1 {
+        font-size: 3.5rem;
+    }
+
+    .nav .burger_container .burger {
+        font-size: 3.5rem;
+    }
+
+    .main .title h1 {
+        font-size: 3.5rem;
+    }
+
+    .main .contact input,
+    .main .contact textarea {
+        font-size: 1.5rem;
+        border: 5px solid rgb(214, 213, 133);
+    }
+
+    .main .contact input::placeholder,
+    .main .contact textarea::placeholder {
+        font-size: 1.3rem;
+    }
+
+    .main .contact button {
+        width: 30%;
+        margin-left: 35%;
+        font-size: 2rem;
+    }
+
+    .main .company_data h1 {
+        font-size: 3rem;
+    }
+
+    .main .company_data p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .nav .logo_container {
+        flex-basis: 10%;
+        height: 100%;
+    }
+
+    .nav .logo_container .logo {
+        padding-left: 20%;
+    }
+
+    .nav .title {
+        flex-grow: 0;
+        flex-basis: 40%;
+        text-align: left;
+    }
+
+    .nav .title h1 {
+        font-size: 3rem;
+    }
+
+    .nav .burger_container {
+        display: none;
+    }
+
+    .nav .menu {
+        position: relative;
+        flex-grow: 1;
+        height: 12vh;
+        background: transparent;
+        opacity: 1;
+        display: block;
+    }
+
+    .nav .menu .exit_menu {
+        display: none;
+    }
+
+    .nav .menu ul {
+        height: 100%;
+        margin-top: 0;
+        margin-right: 5%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav .menu ul li a {
+        position: relative;
+        line-height: 12vh;
+        color: rgb(214, 213, 133);
+    }
+
+    .nav .menu ul li a:before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        height: 3px;
+        width: 0%;
+        background-color: rgb(155, 11, 11);
+    }
+
+    .nav .menu ul li a:hover {
+        animation: growUpText .5s both;
+    }
+
+    .nav .menu ul li a:hover:before {
+        animation: growUpBorder .5s both;
+    }
+
+    .nav .logo_container {
+        flex-basis: 10%;
+        height: 100%;
+    }
+
+    .nav .logo_container .logo {
+        padding-left: 20%;
+    }
+
+    .nav .title {
+        flex-grow: 0;
+        flex-basis: 40%;
+        text-align: left;
+    }
+
+    .nav .title h1 {
+        font-size: 3rem;
+    }
+
+    .nav .burger_container {
+        display: none;
+    }
+
+    .nav .menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        flex-basis: 50%;
+        height: 12vh;
+        padding-right: 5%;
+        background-color: transparent;
+    }
+
+    .nav .menu ul {
+        flex-direction: row;
+    }
+
+    .nav .menu ul li {
+        border: none;
+        list-style: none;
+    }
+
+    .nav .menu ul li a {
+        line-height: 12vh;
+        position: relative;
+    }
+
+
+    .nav .menu ul li a:before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        height: 3px;
+        width: 0%;
+        background-color: rgb(155, 11, 11);
+    }
+
+    .nav .menu ul li a:hover {
+        animation: growUpText .5s both
+    }
+
+    .nav .menu ul li a:hover:before {
+        animation: growUpBorder .5s both;
+    }
+
+    .main {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main .title {
+        flex-basis: 100%;
+        height: 20%;
+    }
+
+    .main .title h1 {
+        margin: 0;
+        line-height: calc(88vh * 20 / 100)
+    }
+
+    .main .contact {
+        flex-basis: 50%;
+        height: 80%;
+        padding: 2% 0 3%;
+    }
+
+    .main .contact input,
+    .main .contact textarea {
+        width: 80%;
+    }
+
+    .main .contact .name,
+    .main .contact .email {
+        margin-left: 10%;
+    }
+
+    .main .contact .number,
+    .main .contact .message {
+        margin-left: 10%;
+    }
+
+    .main .contact button {
+        margin-left: 30%;
+        width: 40%;
+    }
+
+    .main .company_data {
+        flex-basis: 50%;
+        height: 60%;
+        margin-bottom: 0;
+        padding: 2% 0 3%;
+    }
+
+    .main .company_data h1 {
+        margin-top: 0%;
+        margin-bottom: 15%;
+        flex-basis: 100%;
+        font-size: 3.2rem;
+    }
+
+    .main .company_data p {
+        font-size: 1.7rem;
+    }
+
+    .main .company_data .city,
+    .main .company_data .street {
+        flex-basis: 100%;
+    }
+
+    .main .company_data .number,
+    .main .company_data .email {
+        flex-basis: 100%;
+    }
+
+    @keyframes growUpText {
+        0% {
+            font-size: 1.3rem;
+        }
+
+        100% {
+            font-size: 1.7rem;
+        }
+    }
+
+    @keyframes growUpBorder {
+        0% {
+            width: 0%;
+            left: 50%;
+        }
+
+        100% {
+            width: 100%;
+            left: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .nav .menu {
+        padding-right: 10%;
+    }
+
+    .main .contact button {
+        width: 30%;
+        margin-left: 35%;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-height: 350px) {
+    .main {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main .title {
+        flex-basis: 100%;
+        height: 20%;
+    }
+
+    .main .title h1 {
+        margin: 0;
+        line-height: calc(88vh * 20 / 100)
+    }
+
+    .main .contact {
+        flex-basis: 50%;
+        height: 80%;
+        padding: 2% 0 3%;
+    }
+
+    .main .contact input,
+    .main .contact textarea {
+        width: 80%;
+    }
+
+    .main .contact .name,
+    .main .contact .email {
+        margin-left: 10%;
+    }
+
+    .main .contact .number,
+    .main .contact .message {
+        margin-left: 10%;
+    }
+
+    .main .contact button {
+        margin-left: 30%;
+        width: 40%;
+    }
+
+    .main .company_data {
+        flex-basis: 50%;
+        height: 70%;
+        margin-bottom: 0;
+        padding: 2% 0 3%;
+    }
+
+    .main .company_data h1 {
+        margin-top: 0%;
+        margin-bottom: 5%;
+        flex-basis: 100%;
+        font-size: 2.2rem;
+    }
+
+    .main .company_data p {
+        font-size: 1rem;
+    }
+
+    .main .company_data .city,
+    .main .company_data .street {
+        flex-basis: 100%;
+    }
+
+    .main .company_data .number,
+    .main .company_data .email {
+        flex-basis: 100%;
+    }
+}
