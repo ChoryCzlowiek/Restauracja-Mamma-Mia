@@ -286,6 +286,7 @@ body {
 
     .menu_item {
         flex-basis: 24%;
+        height: 30vh;
         border: 2px solid rgb(29, 28, 28);
         background-size: cover;
         background-position: center;
