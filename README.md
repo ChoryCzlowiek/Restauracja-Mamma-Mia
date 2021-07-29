@@ -21,7 +21,7 @@ Project is created with:
 
 ## Installation
 
-* CLone or download repository from [repo](https://github.com/ChoryCzlowiek/Restauracja-Mamma-Mia.git)
+* Clone or download repository from [repo](https://github.com/ChoryCzlowiek/Restauracja-Mamma-Mia.git)
 * Make sure ```index.html``` exist
 * Open ```index.html``` in your browser
 
